@@ -20,9 +20,15 @@ class Header extends Component {
                     <Link className='mobile-links' to='/aboutme'>About Me</Link>
                     </ul>
                 </div>
+                <div>
+
+                </div>
+                <div>
+                    <Link to='/cart'><img src='' alt=''/></Link>
+                    
+                </div>
             </div>
          );
     }
 }
- 
 export default Header;
