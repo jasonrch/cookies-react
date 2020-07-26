@@ -4,11 +4,18 @@ import './Menu.css';
 class Menu extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+            option: ''
+         }
+    }
+    change(e) {
+        console.log(e.target)
     }
     render() { 
         return ( 
-            <div>Menu.js</div>
+            <div className='main-cont'>
+                
+            </div>
          );
     }
 }

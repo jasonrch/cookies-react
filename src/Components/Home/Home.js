@@ -1,15 +1,28 @@
 import React, {Component} from 'react';
 import './Home.css';
+import {Link} from 'react-router-dom';
 
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+
+         }
     }
     render() { 
         return ( 
-            <div id='home-cont'>
-                
+            <div className='main-cont'>
+                <div id='landing-div'>
+                    <div>
+                        <p>Treat Yourself</p>
+                    </div>
+                    <div>
+                        <Link to='/menu'><button>Order Now</button></Link>
+                    </div>
+                </div>
+                <div id='landing-slideshow'>
+                    <img src='' alt='.img' />
+                </div>
             </div>
          );
     }

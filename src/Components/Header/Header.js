@@ -12,12 +12,14 @@ class Header extends Component {
     render() { 
         return ( 
             <div id='header-cont'>
-                <img alt='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png' src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png' onClick={() => this.setState({mobileNav: !this.state.mobileNav})} />
-                <ul className={`mobile-nav ${this.state.mobileNav ? 'mobile-nav-open' : 'desktop-nav'}`}>
-                <Link to='/'>Home</Link>
-                <Link to='/menu'>Menu</Link>
-                <Link to='/aboutme'>About Me</Link>
-                </ul>
+                <div>
+                    <img alt='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png' src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png' onClick={() => this.setState({mobileNav: !this.state.mobileNav})} />
+                    <ul className={`mobile-nav ${this.state.mobileNav ? 'mobile-nav-open' : 'desktop-nav'}`}>
+                    <Link className='mobile-links' to='/'>Home</Link>
+                    <Link className='mobile-links' to='/menu'>Menu</Link>
+                    <Link className='mobile-links' to='/aboutme'>About Me</Link>
+                    </ul>
+                </div>
             </div>
          );
     }

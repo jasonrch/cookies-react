@@ -1,4 +1,26 @@
-#home-cont {
+.main-cont {
     border:2px solid red;
-    height:1200px;
+    min-height:90vh;
+}
+#landing-div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height:400px;
+    background-position: center;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../Pictures/cookie.jpg");
+}
+#landing-div p {
+    margin:0;
+    margin-bottom:15px;
+    color:white;
+    font-size:32px;
+}
+#landing-div button {
+    border-radius: 40px;
+    padding:8px;
+    width:120px;
+    background:white;
 }
