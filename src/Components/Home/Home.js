@@ -21,7 +21,7 @@ class Home extends Component {
                     </div>
                 </div>
                 <div id='landing-slideshow'>
-                    <img src='' alt='.img' />
+                    
                 </div>
             </div>
          );

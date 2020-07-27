@@ -2,7 +2,11 @@
     background-color: bisque;
     padding:10px;
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
 .mobile-nav {
     display: flex;
     flex-direction: column;
@@ -21,7 +25,18 @@
     background-color: bisque;
     justify-content: space-evenly;
 }
-
+.fa-shopping-cart, .fa-birthday-cake {
+    font-size: 26px;
+}
+.cake-div, .cart-div {
+    position: relative;
+}
+.cake-div {
+    right:100px;
+}
+.cart-div {
+    right:10px;
+}
 
 @media (max-width: 500px){
     .desktop-nav {
@@ -42,6 +57,9 @@
         float: left;
         margin-left: 10px;
     } 
+    .cake-div {
+        right: 39%;
+    }
   }
   @media (min-width: 501px){
     /* .desktop-nav {
@@ -57,7 +75,7 @@
     .mobile-nav a {
         padding:10px;
     }
-    #header-cont img {
+    .hidden-img {
         display:none;
     }
   }

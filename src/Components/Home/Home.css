@@ -24,3 +24,29 @@
     width:120px;
     background:white;
 }
+#landing-slideshow {
+    height:300px;
+    background-image: url('../../Pictures/cookie.jpg');
+    background-position: center;
+    background-size: cover;
+    animation: slideshow 10s infinite;
+    width: 75%;
+    margin: 15px auto;
+}
+@keyframes slideshow {
+    0% {
+        background-image: url('../../Pictures/cookie.jpg');
+    }
+    25% {
+        background-image: url('../../Pictures/cookie2.jpg');
+    }
+    50% {
+        background-image: url('../../Pictures/cookie3.jpg');
+    }
+    75% {
+        background-image: url('../../Pictures/cookie4.jpg');
+    }
+    100% {
+        background-image: url('../../Pictures/cookie.jpg');
+    }
+}
