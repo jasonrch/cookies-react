@@ -33,8 +33,8 @@ class Home extends Component {
                 </div>
                 
                 <div id='info-box'>
-                    <h4>Hours Of Operation</h4>
                     <div>
+                    <h4>Hours Of Operation</h4>
                     <adress>
                     Monday 7:30 am - 7:00 pm <br />
                     Tuesday 7:30 am - 7:00 pm <br />

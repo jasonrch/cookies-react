@@ -10,5 +10,6 @@ export default (
         <Route exact path='/' component={Home} />
         <Route path='/menu' component={Menu} />
         <Route path='/aboutme' component={About} />
+        <Route path='/cart' component={Cart} />
     </Switch>
 )

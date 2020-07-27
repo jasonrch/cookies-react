@@ -27,14 +27,14 @@ class Header extends Component {
                 </div>
                 <div className='cake-div'>
                 <Link to='/'>
-                    <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+                    <i className="fa fa-birthday-cake" aria-hidden="true"></i>
                 </Link>
                 </div>
                 <div className='cart-div'>
                 <Link to='/cart'>
                     <i className="fa fa-shopping-cart"></i>
                 </Link>
-                </div>
+                </div> 
             </div>
          );
     }

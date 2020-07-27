@@ -67,5 +67,12 @@ module.exports = {
             })
         }
         emailsender();
+    },
+    menu: async (req, res) => {
+        const db = req.app.get('db');
+
+        const menuItems = await db.getMenu();
+
+    res.status(200).send(menuItems);
     }
 }

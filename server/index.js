@@ -6,7 +6,6 @@ let ctrl = require('./controller');
 const session = require('express-session');
 const axios = require('axios');
 const nodemailer = require('nodemailer');
-const cors = require('cors');
 
 const {CONNECTION_STRING, SESSION_SECRET, SERVER_PORT, ACCOUNT_SID, AUTH_TOKEN} = process.env
 
@@ -32,9 +31,11 @@ app.get('/sendtext',(req, res) => {
 })
 
 
-app.get('/session', ctrl.createUser)
-app.post('/session/add', ctrl.addToCart)
-app.get('/checkout', ctrl.checkout)
+app.get('/session', ctrl.createUser);
+app.get('/menuItems', ctrl.menu);
+app.get('/checkout', ctrl.checkout);
+app.post('/session/add', ctrl.addToCart);
+
 
 massive({
     connectionString: CONNECTION_STRING,
@@ -43,8 +44,6 @@ massive({
 .then(db => {
     app.set('db', db)
     console.log('db connected !');   }).catch(err => console.log(err))
-
+    
+.catch(err => console.log(err));
 app.listen(SERVER_PORT, () => console.log(`Server Running on port ${SERVER_PORT} !`));
-
-
-
