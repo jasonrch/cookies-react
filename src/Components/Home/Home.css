@@ -1,7 +1,5 @@
-.main-cont {
-    border:2px solid red;
-    min-height:90vh;
-}
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+.main-cont {min-height:90vh;}
 #landing-div {
     display: flex;
     justify-content: center;
@@ -33,20 +31,36 @@
     width: 75%;
     margin: 15px auto;
 }
+#info-box {
+    display: flex;
+}
+#info-box > div {
+    width:50%;
+}
 @keyframes slideshow {
-    0% {
-        background-image: url('../../Pictures/cookie.jpg');
-    }
-    25% {
-        background-image: url('../../Pictures/cookie2.jpg');
-    }
-    50% {
-        background-image: url('../../Pictures/cookie3.jpg');
-    }
-    75% {
-        background-image: url('../../Pictures/cookie4.jpg');
-    }
-    100% {
-        background-image: url('../../Pictures/cookie.jpg');
-    }
+    0% {background-image: url('../../Pictures/cookie.jpg');}
+    25% {background-image: url('../../Pictures/cookie2.jpg');}
+    50% {background-image: url('../../Pictures/cookie3.jpg');}
+    75% {background-image: url('../../Pictures/cookie4.jpg');}
+    100% {background-image: url('../../Pictures/cookie.jpg');}
+}
+input {
+    width:50%;
+    margin:10px 0px;
+    padding:10px;
+    border:0;
+    -webkit-appearance: none;
+    -webkit-box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+input[type='textarea']{height:100px;}
+
+@media (max-width: 500px){
+#landing-slideshow {
+    width:100%;
+    margin-top:0;
+}
+input {width:90%;}
+#info-box {flex-direction: column;}
+#info-box > div {width:100%;}
 }

@@ -9,7 +9,15 @@ class Footer extends Component {
     render() { 
         return ( 
             <>
-            <footer>Footer.js</footer>
+            <footer>
+            <div>
+                <address>
+                    C.E.O.: <a href="mailto:webmaster@example.com">Ruth McCalleb</a>.<br /> 
+                    Box 564, New Orleans, LA<br />
+                    USA
+                </address>
+            </div>
+            </footer>
             </>
          );
     }
