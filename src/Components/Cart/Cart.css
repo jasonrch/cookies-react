@@ -1,0 +1,22 @@
+#total-div {
+    /* margin-top: 20px;
+    font-size: 25px;; */
+    position: relative;
+}
+#total-price {
+    position: absolute;
+    right: 20px;
+    color: orangered;
+    font-size: 20px;
+    text-decoration: underline;
+}
+@media (max-width:686px){
+    #total-price {
+        position: relative;
+        right:0;
+    }
+    #total-div {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}

@@ -18,6 +18,8 @@
     "massive": "^6.5.0",
     "nodemailer": "^6.4.10",
     "react": "^16.13.1",
+    "react-alert": "^7.0.2",
+    "react-alert-template-basic": "^1.0.0",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",

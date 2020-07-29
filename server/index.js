@@ -19,7 +19,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     secret: SESSION_SECRET,
-    cookie: {maxAge: 10000}
+    cookie: {maxAge: 1000 * 60 * 60 * 24}
 }));
 app.get('/sendtext',(req, res) => {
     const {user, name, number, address} = req.body;
@@ -34,7 +34,10 @@ app.get('/sendtext',(req, res) => {
 app.get('/session', ctrl.createUser);
 app.get('/menuItems', ctrl.menu);
 app.get('/checkout', ctrl.checkout);
+app.get('/cart', ctrl.getCart);
+// const {name, quantity, price} = req.body;
 app.post('/session/add', ctrl.addToCart);
+app.delete('/removeCartItem', ctrl.removeCartItem)
 
 
 massive({

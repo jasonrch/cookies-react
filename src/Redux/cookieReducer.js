@@ -1,12 +1,15 @@
 import axios from 'axios';
 
 const initialState = {
-    user: [],
+    user: {cart: []},
     items: [],
-    loading: false
+    loading: false,
+    cart: []
 }
 const GET_USER = 'GET_USER';
 const GET_ITEMS = 'GET_ITEMS';
+const GET_CART = 'GET_CART';
+const GET_TOTAL = 'GET_TOTAL';
 
 export function getUser(user) {
     return {
@@ -16,13 +19,25 @@ export function getUser(user) {
 }
 export function getItems(){
     const items = axios.get('/menuItems')
-    console.log(items);
 return {
-    type:GET_ITEMS,
+    type:GET_ITEMS, 
+    payload: items 
+    }
+}
+export function getCart(){
+    const items = axios.get('/cart')
+return {
+    type:GET_CART,
     payload: items
     }
 }
-
+export function getTotal(){
+    const items = axios.get('/checkout')
+return {
+    type:GET_TOTAL,
+    payload: items
+    }
+}
 export default function cookieReducer(state = initialState, action){
 const {type, payload} = action;
 switch(type){
@@ -33,6 +48,18 @@ switch(type){
     case GET_ITEMS + '_FULFILLED':
         return {...state, loading:false, items: payload.data}
     case GET_ITEMS + '_REJECTED':
+        return initialState;
+    case GET_CART + '_PENDING':
+        return {...state, loading:true}
+    case GET_CART + '_FULFILLED':
+        return {...state, loading:false, user: {...state.user, cart:payload.data}}
+    case GET_CART + '_REJECTED':
+        return initialState;
+    case GET_TOTAL + '_PENDING':
+        return {...state, loading:true}
+    case GET_TOTAL + '_FULFILLED':
+        return {...state, loading:false, user: {...state.user, total:payload.data.total}}
+    case GET_TOTAL + '_REJECTED':
         return initialState;
     default:
         return state

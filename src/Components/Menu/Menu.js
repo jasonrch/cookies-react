@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import './Menu.css';
 import {connect} from 'react-redux';
 import {getItems} from '../../Redux/cookieReducer';
+import Loading from '../Loading/Loading';
+import Items from '../Items/Items';
 
 class Menu extends Component {
     constructor(props) {
@@ -24,19 +26,18 @@ class Menu extends Component {
     render() { 
         const items = this.props.items.map((elm, index) => {
             return (
-                <div className='item-box'>
-                    <img src={elm.img} alt='menu item'></img>
-                    <p>{elm.title}</p>
-                    <span>Description:</span> <br />
-                    <p>{elm.description}</p>
-                    <span>{elm.price}</span>
-                </div>
+                <Items key={index} elm={elm} />
                 )
         })
         return ( 
-            <div className='main-cont'>
-                <h4>Menu</h4>
+            this.props.loading ? 
+                <Loading />
+            :
+            <div>
+                <h4 id='menu-h4'>Menu</h4>
+            <div className='main-cont flex-cont'>
                 {items}
+            </div>
             </div>
          );
     }

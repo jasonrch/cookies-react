@@ -1,6 +1,6 @@
 // const bcrypt = require('bcrypt');
 const nodemailer  = require('nodemailer');
-
+let arr2 = [];
 module.exports = {
     createUser: (req, res) => {
         if (!req.session.user){
@@ -17,13 +17,21 @@ module.exports = {
         }
     },
     addToCart: (req, res) => {
-        const {name, quantity, price} = req.body;
-
-        req.session.user.cart.push({name, quantity, price});
-        res.status(200).send(req.session.user);
+        const {title, quantity, price, img} = req.body;
+        if (!req.session.user){
+            req.session.user = {
+                name: "",
+                number: "",
+                email: "",
+                cart: [],
+                total: 0
+            }
+        }
+        req.session.user.cart.push({title, quantity, price, img});
+        res.status(200).send(req.session.user.cart);
     },
     checkout: (req, res) => {
-        let arr2 = [];
+        arr2 = [];
         req.session.user.cart.map((e, i) => {
         let itemTotal = e.price * e.quantity;
         arr2.push(itemTotal)
@@ -31,7 +39,7 @@ module.exports = {
         let total = arr2.reduce((acc, elm) => {
         return acc += elm;
         }, 0)
-        req.session.user.total = total;
+        req.session.user.total = total.toFixed(2);
         res.status(200).send(req.session.user);
     },
     email: (req, res) => {
@@ -74,5 +82,14 @@ module.exports = {
         const menuItems = await db.getMenu();
 
     res.status(200).send(menuItems);
+    },
+    removeCartItem: (req, res) => {
+        const {index} = req.body;
+        req.session.user.cart.splice(index, 1);
+        res.status(200).send(req.session.user.cart)
+
+    },
+    getCart: (req, res) => {
+        res.status(200).send(req.session.user.cart)
     }
 }
