@@ -35,7 +35,7 @@ class Home extends Component {
                 <div id='info-box'>
                     <div>
                     <h4>Hours Of Operation</h4>
-                    <adress>
+                    <address>
                     Monday 7:30 am - 7:00 pm <br />
                     Tuesday 7:30 am - 7:00 pm <br />
                     Wednesday 7:30 am - 7:00 pm <br />
@@ -43,7 +43,7 @@ class Home extends Component {
                     Friday 7:30 am - 7:00 pm <br />
                     Saturday 7:30 am - 7:00 pm <br />
                     Sunday Closed
-                    </adress>
+                    </address>
                 </div>
                 </div>
                 <div id='contact-form'>

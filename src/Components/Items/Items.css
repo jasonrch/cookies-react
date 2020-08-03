@@ -27,15 +27,18 @@
     display: inline-block;
     margin:0px 5px;
 }
-/* @media (max-width:){
-    .item-box > img {
-        min-height: 225px;
-    }
-} */
+.alert-success:nth-child(1){
+    color:red;
+}
+.alert-success:nth-child(2){
+    color:red;
+}
 @media (min-width:501px){
 .item-cont {
     flex-direction: column;
-    width:40%
+    width:30%;
+    height: 500px;
+    margin:10px 10px;
 }
 .item-box:nth-child(1) {
     width:100%;
@@ -51,8 +54,7 @@
 .item-box > img {
     max-height:225px;
     min-height:225px;
+    width:80%;
 }
-.item-cont {
-    height: 500px;
-}
+
 }

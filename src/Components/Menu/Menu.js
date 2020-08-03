@@ -26,7 +26,7 @@ class Menu extends Component {
     render() { 
         const items = this.props.items.map((elm, index) => {
             return (
-                <Items key={index} elm={elm} />
+                <Items key={index} elm={elm} index={index}/>
                 )
         })
         return ( 
@@ -35,7 +35,7 @@ class Menu extends Component {
             :
             <div>
                 <h4 id='menu-h4'>Menu</h4>
-            <div className='main-cont flex-cont'>
+            <div className='main-cont flex-cont-menu'>
                 {items}
             </div>
             </div>
