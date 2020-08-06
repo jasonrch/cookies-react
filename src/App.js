@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 import {getUser} from './Redux/cookieReducer';
 import axios from 'axios';
 
+
 class App extends Component {
   constructor(props) {
     super(props);

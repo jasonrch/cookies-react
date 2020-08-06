@@ -5,7 +5,6 @@ let massive = require('massive');
 let ctrl = require('./controller');
 const session = require('express-session');
 const axios = require('axios');
-const nodemailer = require('nodemailer');
 
 const {CONNECTION_STRING, SESSION_SECRET, SERVER_PORT, ACCOUNT_SID, AUTH_TOKEN} = process.env
 
@@ -37,7 +36,8 @@ app.get('/checkout', ctrl.checkout);
 app.get('/cart', ctrl.getCart);
 // const {name, quantity, price} = req.body;
 app.post('/session/add', ctrl.addToCart);
-app.delete('/removeCartItem', ctrl.removeCartItem)
+app.post('/email', ctrl.email);
+app.delete('/removeCartItem', ctrl.removeCartItem);
 
 
 massive({

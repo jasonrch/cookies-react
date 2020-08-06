@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import './Items.css';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 class Items extends Component {
     constructor(props) {
@@ -10,18 +12,32 @@ class Items extends Component {
             quantity: 6
          }
     }
-   async addToCart(){
+   async addToCart(type){
     const {title, price, img} = this.props.elm;
     const {index} = this.props;
     
     const {quantity} = this.state;
     console.log(title, price, quantity, img);
         await axios.post('/session/add', {title, quantity, price, img});
-    let alertDiv = document.getElementsByClassName('alert-success')[index]
-    alertDiv.innerText='Item Added to Cart !';
-    setTimeout(() => {
-        alertDiv.innerText = ''
-    }, 3000);
+    
+        switch (type) {
+          case 'info':
+            NotificationManager.info('Message Sent!');
+            break;
+          case 'success':
+            NotificationManager.success('', 'Item added to cart', 2000);
+            break;
+          case 'warning':
+            NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
+            break;
+          case 'error':
+            NotificationManager.error('Error message', 'Click me!', 5000, () => {
+              alert('callback');
+            });
+            break;
+            default: console.log('No Message')
+            break;
+      }
     }
     
     render() { 
@@ -41,9 +57,10 @@ class Items extends Component {
                         <button className={this.state.quantity === 6 ? 'buttonClose' : 'buttonOpen'} onClick={() => this.setState({quantity: this.state.quantity - 1})}>-</button>
                         <span>{this.state.quantity}</span>
                         <button className={this.state.quantity === 36 ? 'buttonClose' : 'buttonOpen'} onClick={() => this.setState({quantity: this.state.quantity + 1})}>+</button>
-                        <br /> <button onClick={() => this.addToCart()}>Add To Cart</button> <br />
+                        <br /> <button  className='btn btn-success info-btn' onClick={() => this.addToCart('success')}>Add To Cart</button> <br />
                         <span className='alert-success'> </span>
                     </div>
+                    <NotificationContainer/>
                 </div>
          )
     }

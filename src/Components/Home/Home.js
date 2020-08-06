@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import './Home.css';
 import {Link} from 'react-router-dom';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+
 
 class Home extends Component {
     constructor(props) {
@@ -16,6 +19,31 @@ class Home extends Component {
             [e.target.name]: e.target.value
         })
     }
+    sendMsg(event){
+        event.preventDefault();
+    }
+    createNotification = (type) => {
+        return () => {
+          switch (type) {
+            case 'info':
+              NotificationManager.info('Message Sent!');
+              break;
+            case 'success':
+              NotificationManager.success('Success message', 'Title here');
+              break;
+            case 'warning':
+              NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
+              break;
+            case 'error':
+              NotificationManager.error('Error message', 'Click me!', 5000, () => {
+                alert('callback');
+              });
+              break;
+              default: console.log('No Message')
+              break;
+          }
+        }
+    }
     render() { 
         return ( 
             <div className='main-cont'>
@@ -28,7 +56,7 @@ class Home extends Component {
                     </div>
                 </div>
                 <p>New Orleans style cookies with a twist!</p>
-                <div id='landing-slideshow'>
+                <div id='landing-slideshow'> 
                     
                 </div>
                 
@@ -52,9 +80,11 @@ class Home extends Component {
                     <form>
                         <input placeholder='Full Name' name='fullName' onChange={(e) => this.handleChange(e) } /> <br />
                         <input placeholder='Email' name='email' onChange={(e) => this.handleChange(e) } /> <br />
-                        <input placeholder='Message' name='message' type='textarea' onChange={(e) => this.handleChange(e) } />
+                        <input placeholder='Message' name='message' type='textarea' onChange={(e) => this.handleChange(e) } /> <br />
+                        <button className='btn btn-info info-btn' onClick={this.createNotification('info')}>Send Message</button>
                     </form>
                 </div>
+                <NotificationContainer/>
             </div>
          );
     }

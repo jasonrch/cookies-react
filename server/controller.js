@@ -43,7 +43,7 @@ module.exports = {
         res.status(200).send(req.session.user);
     },
     email: (req, res) => {
-        const {email, username} = req.body;
+        const {email, name, message} = req.body;
         let emailsender = () => {
             let transporter = nodemailer.createTransport({
                 service: 'gmail',
@@ -54,16 +54,10 @@ module.exports = {
             })
             
             let mailOptions = {
-                from: 'dwrighttt504@gmail.com',
-                to: email,
-                subject: "Signup Completed! ✔", // plain text body
-                html: `<h1>Hello ${username} !</h1>
-                    <p>This is an automated message from Darth Vader, "I am your father now !"</p>
-                    <p>No, but seriously welcome to my site!</p>
-                    <a href="http://68.183.132.10:4000/#/admin">Jobbly</a>
-                    <h5>email: admin1@gmail.com</h5>
-                    <h5> password: admin1</h5>
-                `, // html body
+                from: email,
+                to: 'dwrighttt504@gmail.com',
+                subject: `New Food Message from ${name}`, // plain text body
+                html: message
             }
             
             transporter.sendMail(mailOptions, (err, data) => {
@@ -75,6 +69,7 @@ module.exports = {
             })
         }
         emailsender();
+        res.status(200).send(message)
     },
     menu: async (req, res) => {
         const db = req.app.get('db');
