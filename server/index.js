@@ -12,8 +12,9 @@ const accountSid = ACCOUNT_SID;
 const authToken = AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
 // bewlow: DigitalOcean middleware !
-// app.use(express.static(`${__dirname}/../build`));
+app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
+
 app.use(session({
     resave: false,
     saveUninitialized: true,

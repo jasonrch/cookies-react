@@ -19,25 +19,7 @@ class Items extends Component {
     const {quantity} = this.state;
     console.log(title, price, quantity, img);
         await axios.post('/session/add', {title, quantity, price, img});
-    
-        switch (type) {
-          case 'info':
-            NotificationManager.info('Message Sent!');
-            break;
-          case 'success':
-            NotificationManager.success('', 'Item added to cart', 2000);
-            break;
-          case 'warning':
-            NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
-            break;
-          case 'error':
-            NotificationManager.error('Error message', 'Click me!', 5000, () => {
-              alert('callback');
-            });
-            break;
-            default: console.log('No Message')
-            break;
-      }
+        NotificationManager.success('', `${title} added to cart`, 2000);
     }
     
     render() { 
@@ -58,7 +40,6 @@ class Items extends Component {
                         <span>{this.state.quantity}</span>
                         <button className={this.state.quantity === 36 ? 'buttonClose' : 'buttonOpen'} onClick={() => this.setState({quantity: this.state.quantity + 1})}>+</button>
                         <br /> <button  className='btn btn-success info-btn' onClick={() => this.addToCart('success')}>Add To Cart</button> <br />
-                        <span className='alert-success'> </span>
                     </div>
                     <NotificationContainer/>
                 </div>

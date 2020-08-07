@@ -5,6 +5,7 @@ import Loading from '../Loading/Loading';
 import CartItem from '../CartItem/CartItem';
 import './Cart.css';
 
+
 class Cart extends Component {
     constructor(props) {
         super(props);
@@ -41,6 +42,7 @@ class Cart extends Component {
                 </div>
                 <div className='flex-cont'>
                     {items}
+                    
                 </div>
             </div>
          );
