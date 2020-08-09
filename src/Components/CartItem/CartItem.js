@@ -34,7 +34,7 @@ class CartItem extends Component {
                     <div className='item-box-cart'>
                         <img src={this.props.elm.img} alt='menu item'></img>
                         <div style={{"fontSize":"13px"}}>
-                            <span>*View Nutrtion Facts <Link to='/nutrtion-guide'>Here</Link> !</span>
+                            <span>*View Nutrtion Facts <Link to='/guide'>Here</Link> !</span>
                         </div>
                     </div>
                     <div className='item-box-cart'>
@@ -46,7 +46,7 @@ class CartItem extends Component {
                             </div>
                             <div>
                                 <span>Price:</span> <br />
-                                <p>{this.props.elm.price}/ each</p>
+                                <p>${this.props.elm.price}/ each</p>
                             </div>
                             <div>
                                 <span>Quantity: {this.state.quantity}</span>

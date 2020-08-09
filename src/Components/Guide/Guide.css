@@ -1,0 +1,11 @@
+#table-guide-cont {
+    width:80%;
+    margin:auto;
+}
+th, td {
+    border-bottom: 3px solid bisque;
+}
+tr:hover {background-color: bisque}
+th, td {
+    padding: 15px;
+  }

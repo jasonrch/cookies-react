@@ -28,14 +28,14 @@ class Items extends Component {
                     <div className='item-box'>
                         <img src={this.props.elm.img} alt='menu item'></img>
                         <div style={{"fontSize":"13px"}}>
-                            <span>*View Nutrtion Facts <Link to='/nutrtion-guide'>Here</Link> !</span>
+                            <span>*View Nutrtion Facts <Link to='/guide'>Here</Link> !</span>
                         </div>
                     </div>
                     <div className='item-box'>
                         <span>Name:</span>
                         <p>{this.props.elm.title}</p>
                         <span>Price:</span> <br />
-                        <p>{this.props.elm.price}/ each</p>
+                        <p>${this.props.elm.price}/ each</p>
                         <button className={this.state.quantity === 6 ? 'buttonClose' : 'buttonOpen'} onClick={() => this.setState({quantity: this.state.quantity - 1})}>-</button>
                         <span>{this.state.quantity}</span>
                         <button className={this.state.quantity === 36 ? 'buttonClose' : 'buttonOpen'} onClick={() => this.setState({quantity: this.state.quantity + 1})}>+</button>

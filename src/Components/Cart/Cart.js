@@ -42,7 +42,6 @@ class Cart extends Component {
                 </div>
                 <div className='flex-cont'>
                     {items}
-                    
                 </div>
             </div>
          );
