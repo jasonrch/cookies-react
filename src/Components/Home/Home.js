@@ -3,13 +3,14 @@ import './Home.css';
 import {Link} from 'react-router-dom';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
+import axios from 'axios';
 
 
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            fullName: '',
+            name: '',
             email: '',
             message: ''
          }
@@ -19,32 +20,14 @@ class Home extends Component {
             [e.target.name]: e.target.value
         })
     }
-    sendMsg(event){
+    createNotification = (event) => {
+        const {name, email, message} = this.state;
+        axios.post('email', {name, email, message})
         event.preventDefault();
-    }
-    createNotification = (type) => {
-        return () => {
-          switch (type) {
-            case 'info':
-              NotificationManager.info('Message Sent!');
-              break;
-            case 'success':
-              NotificationManager.success('Success message', 'Title here');
-              break;
-            case 'warning':
-              NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
-              break;
-            case 'error':
-              NotificationManager.error('Error message', 'Click me!', 5000, () => {
-                alert('callback');
-              });
-              break;
-              default: console.log('No Message')
-              break;
-          }
-        }
+        NotificationManager.info('Message Sent!', 2000);
     }
     render() { 
+        console.log(this.state);
         return ( 
             <div className='main-cont'>
                 <div id='landing-div'>
@@ -55,7 +38,7 @@ class Home extends Component {
                         <Link to='/menu'><button>Order Now</button></Link>
                     </div>
                 </div>
-                <p>New Orleans style cookies with a twist!</p>
+                <p>Cookies and baked good that are a JOY to eat!</p>
                 <div id='landing-slideshow'> 
                     
                 </div>
@@ -78,10 +61,10 @@ class Home extends Component {
                     <h4>Contact Us</h4>
                     <p>What's on your mind?</p>
                     <form>
-                        <input placeholder='Full Name' name='fullName' onChange={(e) => this.handleChange(e) } /> <br />
-                        <input placeholder='Email' name='email' onChange={(e) => this.handleChange(e) } /> <br />
-                        <input placeholder='Message' name='message' type='textarea' onChange={(e) => this.handleChange(e) } /> <br />
-                        <button className='btn btn-info info-btn' onClick={this.createNotification('info')}>Send Message</button>
+                        <input placeholder='name' name='name' onChange={(e) => this.handleChange(e) } /> <br />
+                        <input placeholder='email' name='email' onChange={(e) => this.handleChange(e) } /> <br />
+                        <input placeholder="I loved your chocolate chip cookies! Is there any way I can order ahead for a party I'm hosting?" name='message' type='textarea' onChange={(e) => this.handleChange(e) } /> <br />
+                        <button className='btn btn-info info-btn' onClick={(event) => this.createNotification(event)}>Send Message</button>
                     </form>
                 </div>
                 <NotificationContainer/>

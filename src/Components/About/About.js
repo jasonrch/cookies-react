@@ -3,7 +3,10 @@ import './About.css';
 
 function About(){
     return (
-        <div>About Me!</div>
+        <div className='main-cont flex-cont-about'>
+            <div>Hello</div>
+            <div>Hello 2</div>
+        </div>
     )
 }
  

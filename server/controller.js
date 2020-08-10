@@ -56,8 +56,8 @@ module.exports = {
             let mailOptions = {
                 from: email,
                 to: 'dwrighttt504@gmail.com',
-                subject: `New Food Message from ${name}`, // plain text body
-                html: message
+                subject: `New Review from ${name}`, // plain text body
+                html: `${name} says '${message}'. They can be reached at ${email}`
             }
             
             transporter.sendMail(mailOptions, (err, data) => {

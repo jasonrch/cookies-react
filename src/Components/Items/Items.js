@@ -17,10 +17,9 @@ class Items extends Component {
     const {index} = this.props;
     
     const {quantity} = this.state;
-    console.log(title, price, quantity, img);
-        await axios.post('/session/add', {title, quantity, price, img});
-        NotificationManager.success('', `${title} added to cart`, 2000);
-    }
+    await axios.post('/session/add', {title, quantity, price, img});
+    NotificationManager.success('', `${title} added to cart`, 2000);
+}
     
     render() { 
         return ( 

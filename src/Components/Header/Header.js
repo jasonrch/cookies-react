@@ -6,7 +6,8 @@ class Header extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            mobileNav: false
+            mobileNav: false,
+            
          }
     }
     closeNav(){
@@ -22,7 +23,7 @@ class Header extends Component {
                     <ul className={`mobile-nav ${this.state.mobileNav ? 'mobile-nav-open' : 'desktop-nav'}`}>
                     <Link onClick={() => this.closeNav()} className='mobile-links' to='/'>Home</Link>
                     <Link onClick={() => this.closeNav()} className='mobile-links' to='/menu'>Menu</Link>
-                    <Link onClick={() => this.closeNav()} className='mobile-links' to='/aboutme'>About Me</Link>
+                    <Link onClick={() => this.closeNav()} className='mobile-links' to='/guide'>Nutrtion Guide</Link>
                     </ul>
                 </div>
                 <div className='cake-div'>
@@ -31,8 +32,9 @@ class Header extends Component {
                 </Link>
                 </div>
                 <div className='cart-div'>
-                <Link to='/cart'>
+                <Link className='notification-cart' to='/cart'>
                     <i className="fa fa-shopping-cart"></i>
+                <span className='badge'>{}</span>
                 </Link>
                 </div> 
             </div>

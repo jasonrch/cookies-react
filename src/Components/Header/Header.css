@@ -24,8 +24,8 @@
     background-color: bisque;
     justify-content: flex-start;
 }
-.fa-shopping-cart{font-size:28px;}
-.fa-birthday-cake {font-size: 26px;}
+.fa-shopping-cart{font-size:30px;}
+.fa-birthday-cake {font-size: 30px;}
 .cake-div, .cart-div {position: absolute;}
 .cake-div {
     right:48vw;
@@ -35,7 +35,17 @@
     right:15px;
     top:2.8vh;
 }
-
+.notification {
+position: relative;
+padding:5px;
+}
+.badge {
+    position: absolute;
+    top: -15px;
+    left: -18px;
+    color: red;
+    font-size: 20px;
+}
 @media (max-width: 500px){
     .desktop-nav {display: none;}
     .mobile-nav {
