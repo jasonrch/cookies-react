@@ -20,11 +20,11 @@
 }
 .mobile-nav-open {
     display: block;
-    height:18vh;
+    height:15vh;
     background-color: bisque;
     justify-content: flex-start;
 }
-.fa-shopping-cart{font-size:30px;}
+.fa-shopping-cart{font-size:34px;}
 .fa-birthday-cake {font-size: 30px;}
 .cake-div, .cart-div {position: absolute;}
 .cake-div {

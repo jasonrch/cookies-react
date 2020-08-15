@@ -24,7 +24,7 @@ class Home extends Component {
         const {name, email, message} = this.state;
         axios.post('email', {name, email, message})
         event.preventDefault();
-        NotificationManager.info('Message Sent!', 2000);
+        NotificationManager.info("We'll be in touch", 'Message Sent!', 2000);
     }
     render() { 
         console.log(this.state);
@@ -38,7 +38,7 @@ class Home extends Component {
                         <Link to='/menu'><button>Order Now</button></Link>
                     </div>
                 </div>
-                <p>Cookies and baked good that are a JOY to eat!</p>
+                <p>Cookies and baked goods that are a JOY to eat!</p>
                 <div id='landing-slideshow'> 
                     
                 </div>
@@ -58,12 +58,12 @@ class Home extends Component {
                 </div>
                 </div>
                 <div id='contact-form'>
-                    <h4>Contact Us</h4>
-                    <p>What's on your mind?</p>
+                    <h4 style={{'marginBottom':"5px"}}>Contact Us</h4>
+                    <p style={{'marginTop':"0"}}>What's on your mind?</p>
                     <form>
-                        <input placeholder='name' name='name' onChange={(e) => this.handleChange(e) } /> <br />
-                        <input placeholder='email' name='email' onChange={(e) => this.handleChange(e) } /> <br />
-                        <input placeholder="I loved your chocolate chip cookies! Is there any way I can order ahead for a party I'm hosting?" name='message' type='textarea' onChange={(e) => this.handleChange(e) } /> <br />
+                        <input placeholder='Name' name='name' onChange={(e) => this.handleChange(e) } /> <br />
+                        <input placeholder='Email' name='email' onChange={(e) => this.handleChange(e) } /> <br />
+                        <input placeholder="I loved your chocolate chip cookies!" name='message' type='textarea' onChange={(e) => this.handleChange(e) } /> <br />
                         <button className='btn btn-info info-btn' onClick={(event) => this.createNotification(event)}>Send Message</button>
                     </form>
                 </div>

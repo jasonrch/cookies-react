@@ -17,8 +17,9 @@ module.exports = {
         }
     },
     addToCart: (req, res) => {
-        const {title, quantity, price, img} = req.body;
+        let {title, quantity, price, img} = req.body;
         if (!req.session.user){
+            console.log('new user')
             req.session.user = {
                 name: "",
                 number: "",
@@ -26,8 +27,19 @@ module.exports = {
                 cart: [],
                 total: 0
             }
+            req.session.user.cart.push({title, quantity, price, img});
+        } else {
+            req.session.user.cart.forEach(element => {
+                if (title === element.title){
+                    console.log('title')
+                    element.quantity = +element.quantity + +quantity;
+                } else {
+                    console.log('Hello')
+                    req.session.user.cart.push({title, quantity, price, img});
+                }
+            });
         }
-        req.session.user.cart.push({title, quantity, price, img});
+        // req.session.user.cart.push({title, quantity, price, img});
         res.status(200).send(req.session.user.cart);
     },
     checkout: (req, res) => {

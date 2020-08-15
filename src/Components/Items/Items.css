@@ -33,6 +33,12 @@
 .alert-success:nth-child(2){
     color:red;
 }
+.notification:before {
+    left:5px;
+}
+.notification-container {
+    padding: 5px;
+}
 @media (min-width:501px){
 .item-cont {
     flex-direction: column;

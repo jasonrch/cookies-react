@@ -15,9 +15,6 @@ class Menu extends Component {
     }
     async componentDidMount(){
        await this.props.getItems();
-        // this.setState({
-        //     items: this.props.items
-        // })
     }
     change(e) {
         console.log(e.target)
