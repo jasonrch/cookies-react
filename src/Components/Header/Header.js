@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './Header.css';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {changeCart} from '../../Redux/cookieReducer';
 
 class Header extends Component {
     constructor(props) {
@@ -32,7 +34,7 @@ class Header extends Component {
                 </Link>
                 </div>
                 <div className='cart-div'>
-                <Link className='notification-cart' to='/cart'>
+                <Link className={`notification-cart ${this.props.cartFull || this.props.user.cart.length >= 1 ? 'cart-animation' : false}`} to='/cart'>
                     <i className="fa fa-shopping-cart"></i>
                 <span className='badge'>{}</span>
                 </Link>
@@ -41,4 +43,5 @@ class Header extends Component {
          );
     }
 }
-export default Header;
+const mapStateToProps = reduxState => reduxState;
+export default connect(mapStateToProps, {changeCart})(Header);

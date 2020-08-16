@@ -4,16 +4,24 @@ const initialState = {
     user: {cart: []},
     items: [],
     loading: false,
-    cart: []
+    cart: [],
+    cartFull: false
 }
 const GET_USER = 'GET_USER';
 const GET_ITEMS = 'GET_ITEMS';
 const GET_CART = 'GET_CART';
 const GET_TOTAL = 'GET_TOTAL';
+const CHANGE_CART = 'CHANGE_CART'
 
 export function getUser(user) {
     return {
         type:GET_USER,
+        payload: user
+    }
+}
+export function changeCart(user) {
+    return {
+        type:CHANGE_CART,
         payload: user
     }
 }
@@ -43,6 +51,8 @@ const {type, payload} = action;
 switch(type){
     case GET_USER:
         return {...state, user: payload}
+    case CHANGE_CART:
+        return {...state, cartFull: true}
     case GET_ITEMS + '_PENDING':
         return {...state, loading:true}
     case GET_ITEMS + '_FULFILLED':

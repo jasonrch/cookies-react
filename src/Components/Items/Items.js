@@ -4,6 +4,8 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
+import {connect} from 'react-redux';
+import {changeCart} from '../../Redux/cookieReducer';
 
 class Items extends Component {
     constructor(props) {
@@ -13,11 +15,13 @@ class Items extends Component {
          }
     }
    async addToCart(type){
+    await this.props.changeCart(true);
     const {title, price, img} = this.props.elm;
     const {index} = this.props;
     
     const {quantity} = this.state;
-    await axios.post('/session/add', {title, quantity, price, img});
+    const addedItem = await axios.post('/session/add', {title, quantity, price, img});
+    console.log(addedItem);
     NotificationManager.success('', `${title} added to cart`, 2000);
 }
     
@@ -34,9 +38,9 @@ class Items extends Component {
                         <span>Name:</span>
                         <p>{this.props.elm.title}</p>
                         <span>Price:</span> <br />
-                        <p>${this.props.elm.price}/ each</p>
+        <p>${this.props.elm.price * 6} ({this.props.elm.price}/ each)</p>
                         <button className={this.state.quantity === 6 ? 'buttonClose' : 'buttonOpen'} onClick={() => this.setState({quantity: this.state.quantity - 1})}>-</button>
-                        <span>{this.state.quantity}</span>
+                        <span id='quantity'>{this.state.quantity}</span>
                         <button className={this.state.quantity === 36 ? 'buttonClose' : 'buttonOpen'} onClick={() => this.setState({quantity: this.state.quantity + 1})}>+</button>
                         <br /> <button  className='btn btn-success info-btn' onClick={() => this.addToCart('success')}>Add To Cart</button> <br />
                     </div>
@@ -46,4 +50,5 @@ class Items extends Component {
     }
 }
  
-export default Items;
+const mapStateToProps = reduxState => reduxState;
+export default connect(mapStateToProps, {changeCart})(Items);

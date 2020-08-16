@@ -26,6 +26,7 @@
 .buttonOpen {
     display: inline-block;
     margin:0px 5px;
+    font-size: 22px;
 }
 .alert-success:nth-child(1){
     color:red;
@@ -38,6 +39,10 @@
 }
 .notification-container {
     padding: 5px;
+}
+#quantity {
+    font-size: 25px;
+    margin: 0px 5px;
 }
 @media (min-width:501px){
 .item-cont {

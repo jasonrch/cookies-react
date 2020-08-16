@@ -46,6 +46,14 @@ padding:5px;
     color: red;
     font-size: 20px;
 }
+.cart-animation {
+    animation: mymove 3s infinite;
+}
+@keyframes mymove {
+    0% {color:black}
+    50% {color:orange}
+    100% {color:black}
+  }
 @media (max-width: 500px){
     .desktop-nav {display: none;}
     .mobile-nav {
