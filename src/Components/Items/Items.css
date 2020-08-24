@@ -48,8 +48,8 @@
 .item-cont {
     flex-direction: column;
     width:30%;
-    height: 500px;
-    margin:10px 10px;
+    height: 520px;
+    margin:10px 16px;
 }
 .item-box:nth-child(1) {
     width:100%;
@@ -65,7 +65,7 @@
 .item-box > img {
     max-height:225px;
     min-height:225px;
-    width:80%;
+    width:90%;
 }
 
 }

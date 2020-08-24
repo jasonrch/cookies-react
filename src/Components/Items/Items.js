@@ -37,12 +37,12 @@ class Items extends Component {
                     <div className='item-box'>
                         <span>Name:</span>
                         <p>{this.props.elm.title}</p>
-                        <span>Price:</span> <br />
-        <p>${this.props.elm.price * 6} ({this.props.elm.price}/ each)</p>
+                        <span>Price:</span>
+                        <p style={{"padding-top":"0px"}}>${this.props.elm.price}/ each</p>
                         <button className={this.state.quantity === 6 ? 'buttonClose' : 'buttonOpen'} onClick={() => this.setState({quantity: this.state.quantity - 1})}>-</button>
                         <span id='quantity'>{this.state.quantity}</span>
                         <button className={this.state.quantity === 36 ? 'buttonClose' : 'buttonOpen'} onClick={() => this.setState({quantity: this.state.quantity + 1})}>+</button>
-                        <br /> <button  className='btn btn-success info-btn' onClick={() => this.addToCart('success')}>Add To Cart</button> <br />
+                        <br /> <button  className='btn btn-success  info-btn' onClick={() => this.addToCart('success')}>Add To Cart</button> <br />
                     </div>
                     <NotificationContainer/>
                 </div>

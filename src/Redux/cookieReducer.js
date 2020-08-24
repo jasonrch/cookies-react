@@ -52,7 +52,7 @@ switch(type){
     case GET_USER:
         return {...state, user: payload}
     case CHANGE_CART:
-        return {...state, cartFull: true}
+        return {...state, cartFull: payload}
     case GET_ITEMS + '_PENDING':
         return {...state, loading:true}
     case GET_ITEMS + '_FULFILLED':

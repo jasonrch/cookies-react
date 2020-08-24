@@ -10,7 +10,8 @@ class Cart extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            alert: true
+            alert: true,
+            cart: []
         }
         this.alert = this.alert.bind.this;
     }
@@ -26,12 +27,14 @@ class Cart extends Component {
             alert: false
         })
     }
+    componentDidUpdate(one, two){
+        console.log(one);
+        console.log(two);
+    }
     render() { 
         const items = this.props.user.cart.map((elm, index) => {
             return <CartItem key={index} elm={elm} index={index} />
         })
-        
-        console.log(this.props);
         return ( 
             this.props.user.cart.length === 0 ? <Loading /> : 
             

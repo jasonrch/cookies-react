@@ -38,7 +38,7 @@ class CartItem extends Component {
                         </div>
                     </div>
                     <div className='item-box-cart'>
-                        <div style={{"padding":"10px"}} className='flex-cont'>
+                        <div style={{"padding":"10px"}} className='flex-cont-cart'>
 
                             <div>
                                 <span>Name:</span>
@@ -52,11 +52,6 @@ class CartItem extends Component {
                                 <span>Quantity: {this.state.quantity}</span>
                                 <br /> <button className='btn btn-success cart-remove-button' onClick={() => this.removeItem('warning')}>Remove Item</button>
                             </div>
-                        </div>
-                        <div id='cart-ingredients'> 
-                            <span>Ingredients: </span> <span>Protein: 3.6g 7 % Sugars: 25g Vitamin A: 258IU Vitamin C: 
-                            0mg Calcium: 24mg Iron: 1mg Thiamin: 0mg Niacin: 2mg Vitamin B6: 0mg Magnesium: 
-                            29mg Folate: 38mcg</span>
                         </div>
                     </div>
                     <NotificationContainer />

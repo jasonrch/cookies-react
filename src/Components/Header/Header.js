@@ -9,7 +9,6 @@ class Header extends Component {
         super(props);
         this.state = { 
             mobileNav: false,
-            
          }
     }
     closeNav(){
@@ -17,7 +16,11 @@ class Header extends Component {
             mobileNav: false
         })
     }
+    componentDidUpdate(one, two){
+        console.log()
+    }
     render() { 
+        console.log();
         return ( 
             <div id='header-cont'>
                 <div>
@@ -34,7 +37,7 @@ class Header extends Component {
                 </Link>
                 </div>
                 <div className='cart-div'>
-                <Link className={`notification-cart ${this.props.cartFull || this.props.user.cart.length >= 1 ? 'cart-animation' : false}`} to='/cart'>
+                <Link className={`notification-cart ${this.props.cartFull || this.props.user.cart.length >= 1 ? 'cart-animation' : 'cart-animation-off'}`} to='/cart'>
                     <i className="fa fa-shopping-cart"></i>
                 <span className='badge'>{}</span>
                 </Link>

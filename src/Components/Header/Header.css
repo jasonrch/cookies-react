@@ -49,9 +49,16 @@ padding:5px;
 .cart-animation {
     animation: mymove 3s infinite;
 }
+.cart-animation-off {
+    animation: mymoveoff 1s ;
+}
 @keyframes mymove {
     0% {color:black}
     50% {color:orange}
+    100% {color:black}
+  }
+  @keyframes mymoveoff {
+    0% {color:black}
     100% {color:black}
   }
 @media (max-width: 500px){
