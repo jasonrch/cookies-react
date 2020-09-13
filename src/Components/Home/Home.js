@@ -97,7 +97,7 @@ class Home extends Component {
             return console.log('Forgot something')
         }
         
-        axios.post('email', {Name, Email, Message})
+        axios.post('/email', {Name, Email, Message})
         inpName.value = '';
         inpEmail.value = '';
         inpMessage.value = '';
