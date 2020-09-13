@@ -55,7 +55,8 @@ module.exports = {
         res.status(200).send(req.session.user);
     },
     email: (req, res) => {
-        const {email, name, message} = req.body;
+        const {Email, Name, Message} = req.body;
+        console.log(Email);
         let emailsender = () => {
             let transporter = nodemailer.createTransport({
                 service: 'gmail',
@@ -66,10 +67,10 @@ module.exports = {
             })
             
             let mailOptions = {
-                from: email,
+                from: Email,
                 to: 'dwrighttt504@gmail.com',
-                subject: `New Review from ${name}`, // plain text body
-                html: `${name} says '${message}'. They can be reached at ${email}`
+                subject: `New Review from ${Name}`, // plain text body
+                html: `${Name} says '${Message}'. They can be reached at ${Email}`
             }
             
             transporter.sendMail(mailOptions, (err, data) => {
@@ -81,7 +82,7 @@ module.exports = {
             })
         }
         emailsender();
-        res.status(200).send(message)
+        res.status(200).send(Message)
     },
     menu: async (req, res) => {
         const db = req.app.get('db');

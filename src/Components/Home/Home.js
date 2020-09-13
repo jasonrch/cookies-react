@@ -62,6 +62,7 @@ class Home extends Component {
     createNotification = (event) => {
         event.preventDefault();
         const {Name, Email, Message} = this.state;
+        console.log(Name, Email, Message)
         const inpName = document.getElementById('inpName');
         const inpEmail = document.getElementById('inpEmail');
         const inpMessage = document.getElementById('inpMessage');      
