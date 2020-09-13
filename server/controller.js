@@ -82,7 +82,7 @@ module.exports = {
             })
         }
         emailsender();
-        res.status(200).send(Message)
+        res.status(200).send(req.body)
     },
     menu: async (req, res) => {
         const db = req.app.get('db');
