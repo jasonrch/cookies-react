@@ -10,9 +10,12 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            name: '',
-            email: '',
-            message: ''
+            Name: '',
+            Email: '',
+            Message: '',
+            NameInp: true,
+            EmailInp: true,
+            MessageInp: true
          }
     }
     handleChange(e){
@@ -21,9 +24,39 @@ class Home extends Component {
         })
     }
     createNotification = (event) => {
-        const {name, email, message} = this.state;
-        axios.post('email', {name, email, message})
+        const {Name, Email, Message} = this.state;
+        const inpName = document.getElementById('inpName');
+        const inpEmail = document.getElementById('inpEmail');
+        const inpMessage = document.getElementById('inpMessage');      
+        if (/[a-z]{3}/.test(Name) === false && /[a-z0-9]{3,50}@[a-z]{3,7}.[a-z]{2,3}/.test(Email) === false && /[a-z]{1,500}/.test(Message) === false){
+        return this.setState({
+            NameInp: false,
+            EmailInp: false,
+            MessageInp: false
+        })    
+        } else if (/[a-z]{3}/.test(Name) === false && /[a-z0-9]{3,50}@[a-z]{3,7}.[a-z]{2,3}/.test(Email) === false && /[a-z]{1,500}/.test(Message) === true){
+            return this.setState({
+                MessageInp: false
+            })  
+        } else if (/[a-z]{3}/.test(Name) === false && /[a-z]{1,500}/.test(Message) === false && /[a-z0-9]{3,50}@[a-z]{3,7}.[a-z]{2,3}/.test(Email) === true){
+            return this.setState({
+                EmailInp: false
+            })  
+        } else if (/[a-z]{3}/.test(Name) === false && /[a-z0-9]{3,50}@[a-z]{3,7}.[a-z]{2,3}/.test(Email) === true && /[a-z]{1,500}/.test(Message) === true){
+            return this.setState({
+                EmailInp: false,
+                MessageInp: false
+            }) 
+        } else if(/[a-z0-9]{3,50}@[a-z]{3,7}.[a-z]{2,3}/.test(Email) === false && /[a-z]{1,500}/.test(Message) === false && /[a-z]{3}/.test(Name) === true){
+            return this.setState({
+                NameInp: false
+            }) 
+        }
+        axios.post('email', {Name, Email, Message})
         event.preventDefault();
+        inpName.value = '';
+        inpEmail.value = '';
+        inpMessage.value = '';
         NotificationManager.info("We'll be in touch", 'Message Sent!', 2000);
     }
     render() { 
@@ -61,9 +94,9 @@ class Home extends Component {
                     <h4 style={{'marginBottom':"5px"}}>Contact Us</h4>
                     <p style={{'marginTop':"0"}}>What's on your mind?</p>
                     <form>
-                        <input placeholder='Name' name='name' onChange={(e) => this.handleChange(e) } /> <br />
-                        <input placeholder='Email' name='email' onChange={(e) => this.handleChange(e) } /> <br />
-                        <input placeholder="I loved your chocolate chip cookies!" name='message' type='textarea' onChange={(e) => this.handleChange(e) } /> <br />
+                        <input id='inpName' placeholder='Name' name='Name' onChange={(e) => this.handleChange(e) } /> <br />
+                        <input id='inpEmail' placeholder='Email' name='Email' onChange={(e) => this.handleChange(e) } /> <br />
+                        <input id='inpMessage' placeholder="I loved your chocolate chip cookies!" name='Message' type='textarea' onChange={(e) => this.handleChange(e) } /> <br />
                         <button className='btn btn-info info-btn' onClick={(event) => this.createNotification(event)}>Send Message</button>
                     </form>
                 </div>
