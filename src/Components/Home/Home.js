@@ -23,44 +23,86 @@ class Home extends Component {
             [e.target.name]: e.target.value
         })
     }
+    checkname(e){
+        this.handleChange(e)
+        if (/[a-z]{3}/gmi.test(this.state.Name) === true){
+            this.setState({
+                NameInp: true
+            })   
+        } else {
+            this.setState({
+                NameInp: false
+            })
+        }
+    }
+    checkemail(e){
+        this.handleChange(e)
+        if (/[a-z0-9]{3,50}@[a-z]{3,7}.[a-z]{2,3}/gmi.test(this.state.Email) === true){
+            this.setState({
+                EmailInp: true,
+            })
+        } else {
+            this.setState({
+                EmailInp: false,
+            })
+        }
+    }
+    checkmessage(e){
+        this.handleChange(e)
+        if(/[a-z]{1,500}/.test(this.state.Message) === true){
+            this.setState({
+                MessageInp: true
+            })
+        } else {
+            this.setState({
+                MessageInp: false
+            })
+        }
+    }
     createNotification = (event) => {
+        event.preventDefault();
         const {Name, Email, Message} = this.state;
         const inpName = document.getElementById('inpName');
         const inpEmail = document.getElementById('inpEmail');
         const inpMessage = document.getElementById('inpMessage');      
-        if (/[a-z]{3}/.test(Name) === false && /[a-z0-9]{3,50}@[a-z]{3,7}.[a-z]{2,3}/.test(Email) === false && /[a-z]{1,500}/.test(Message) === false){
-        return this.setState({
-            NameInp: false,
-            EmailInp: false,
-            MessageInp: false
-        })    
-        } else if (/[a-z]{3}/.test(Name) === false && /[a-z0-9]{3,50}@[a-z]{3,7}.[a-z]{2,3}/.test(Email) === false && /[a-z]{1,500}/.test(Message) === true){
-            return this.setState({
-                MessageInp: false
-            })  
-        } else if (/[a-z]{3}/.test(Name) === false && /[a-z]{1,500}/.test(Message) === false && /[a-z0-9]{3,50}@[a-z]{3,7}.[a-z]{2,3}/.test(Email) === true){
-            return this.setState({
-                EmailInp: false
-            })  
-        } else if (/[a-z]{3}/.test(Name) === false && /[a-z0-9]{3,50}@[a-z]{3,7}.[a-z]{2,3}/.test(Email) === true && /[a-z]{1,500}/.test(Message) === true){
-            return this.setState({
-                EmailInp: false,
-                MessageInp: false
-            }) 
-        } else if(/[a-z0-9]{3,50}@[a-z]{3,7}.[a-z]{2,3}/.test(Email) === false && /[a-z]{1,500}/.test(Message) === false && /[a-z]{3}/.test(Name) === true){
-            return this.setState({
+        if (/[a-z]{3}/gmi.test(Name) === true){
+            this.setState({
+                NameInp: true
+            })   
+        } else {
+            this.setState({
                 NameInp: false
-            }) 
+            })
         }
+        if (/[a-z0-9]{3,50}@[a-z]{3,7}.[a-z]{2,3}/gmi.test(Email) === true){
+            this.setState({
+                EmailInp: true,
+            })
+        } else {
+            this.setState({
+                EmailInp: false,
+            })
+        }
+        if(/[a-z]{1,500}/.test(Message) === true){
+            this.setState({
+                MessageInp: true
+            })
+        } else {
+            return this.setState({
+                MessageInp: false
+            })
+        }
+        if(this.state.NameInp === false || this.state.EmailInp === false || this.state.MessageInp === false){
+            return console.log('Forgot something')
+        }
+        
         axios.post('email', {Name, Email, Message})
-        event.preventDefault();
         inpName.value = '';
         inpEmail.value = '';
         inpMessage.value = '';
         NotificationManager.info("We'll be in touch", 'Message Sent!', 2000);
     }
     render() { 
-        console.log(this.state);
         return ( 
             <div className='main-cont'>
                 <div id='landing-div'>
@@ -94,9 +136,9 @@ class Home extends Component {
                     <h4 style={{'marginBottom':"5px"}}>Contact Us</h4>
                     <p style={{'marginTop':"0"}}>What's on your mind?</p>
                     <form>
-                        <input id='inpName' placeholder='Name' name='Name' onChange={(e) => this.handleChange(e) } /> <br />
-                        <input id='inpEmail' placeholder='Email' name='Email' onChange={(e) => this.handleChange(e) } /> <br />
-                        <input id='inpMessage' placeholder="I loved your chocolate chip cookies!" name='Message' type='textarea' onChange={(e) => this.handleChange(e) } /> <br />
+                        <input className = {this.state.NameInp ? 'accepted' : 'denied'} id='inpName' placeholder='Name' name='Name' onChange={(e)=>this.checkname(e) } /> <br />
+                        <input className = {this.state.EmailInp ? 'accepted' : 'denied'} id='inpEmail' placeholder='Email' name='Email' onChange={(e)=>this.checkemail(e) } /> <br />
+                        <input className = {this.state.MessageInp ? 'accepted' : 'denied'} id='inpMessage' placeholder="I loved your chocolate chip cookies!" name='Message' type='textarea' onChange={(e)=>this.checkmessage(e) } /> <br />
                         <button className='btn btn-info info-btn' onClick={(event) => this.createNotification(event)}>Send Message</button>
                     </form>
                 </div>

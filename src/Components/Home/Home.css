@@ -72,7 +72,10 @@ input {
     box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
 }
 input[type='textarea']{height:100px;}
-
+.denied {border:2px solid red};
+input.middle:focus {
+    outline-width: 0;
+}
 @media (max-width: 500px){
 #landing-slideshow {
     width:100%;
