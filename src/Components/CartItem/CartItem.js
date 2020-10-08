@@ -49,7 +49,7 @@ class CartItem extends Component {
                                 <p>${this.props.elm.price}/ each</p>
                             </div>
                             <div>
-                                <span>Quantity: {this.state.quantity}</span>
+                                <span>Quantity: {this.props.elm.quantity}</span>
                                 <br /> <button className='btn btn-success cart-remove-button' onClick={() => this.removeItem('warning')}>Remove Item</button>
                             </div>
                         </div>

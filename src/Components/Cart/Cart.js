@@ -27,10 +27,6 @@ class Cart extends Component {
             alert: false
         })
     }
-    componentDidUpdate(one, two){
-        console.log(one);
-        console.log(two);
-    }
     render() { 
         const items = this.props.user.cart.map((elm, index) => {
             return <CartItem key={index} elm={elm} index={index} />
