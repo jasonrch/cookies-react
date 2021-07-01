@@ -1,5 +1,5 @@
 #table-guide-cont {
-    width:80%;
+    width:100%;
     margin:auto;
 }
 th, td {
@@ -8,4 +8,9 @@ th, td {
 tr:hover {background-color: bisque}
 th, td {
     padding: 15px;
-  }
+}
+@media (max-width: 500px){
+    #table-guide-cont {
+        width:80%;
+    }
+}

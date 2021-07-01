@@ -51,7 +51,7 @@
 @media (min-width:501px){
 .item-cont {
     flex-direction: column;
-    width:30%;
+    width:28%;
     height: 520px;
     margin:10px 16px;
 }

@@ -17,7 +17,7 @@ class Items extends Component {
    async addToCart(type){
     await this.props.changeCart(true);
     const {title, price, img} = this.props.elm;
-    const {index} = this.props;
+    // const {index} = this.props;
     
     const {quantity} = this.state;
     const addedItem = await axios.post('/session/add', {title, quantity, price, img});
