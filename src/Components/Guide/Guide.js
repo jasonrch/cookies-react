@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Guide.css';
+import {Link} from 'react-router-dom'
 
 class Guide extends Component {
     constructor(props) {
@@ -10,6 +11,11 @@ class Guide extends Component {
         return ( 
             <div className='main-cont'>
                 <h1>Guide</h1>
+                <div class='back-to-menu-div'>
+                    <Link style={{"margin-left": "10px"}} to='/menu'>
+                    &#60; Back To Menu
+                    </Link>
+                </div>
                 <table id='table-guide-cont'>
                     <tr>
                         <th>Cookie</th>
