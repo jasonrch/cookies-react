@@ -16,15 +16,11 @@ class Header extends Component {
             mobileNav: false
         })
     }
-    componentDidUpdate(one, two){
-        console.log()
-    }
     render() { 
-        console.log();
         return ( 
             <div id='header-cont'>
                 <div>
-                    <img className='hidden-img'alt='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png' src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png' onClick={() => this.setState({mobileNav: !this.state.mobileNav})} />
+                    <img className='hidden-img' alt='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png' src={this.state.mobileNav ? 'https://pic.onlinewebfonts.com/svg/img_143166.png' : 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png'} onClick={() => this.setState({mobileNav: !this.state.mobileNav})} />
                     <ul className={`mobile-nav ${this.state.mobileNav ? 'mobile-nav-open' : 'desktop-nav'}`}>
                     <Link onClick={() => this.closeNav()} className='mobile-links' to='/'>Home</Link>
                     <Link onClick={() => this.closeNav()} className='mobile-links' to='/menu'>Menu</Link>

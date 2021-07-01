@@ -4,6 +4,7 @@ import {getCart, getTotal} from '../../Redux/cookieReducer';
 import Loading from '../Loading/Loading';
 import CartItem from '../CartItem/CartItem';
 import './Cart.css';
+import {Link} from 'react-router-dom'
 
 
 class Cart extends Component {
@@ -36,8 +37,13 @@ class Cart extends Component {
             
             <div style={{"min-height": "95vh"}}>
                 <div id='total-div'>
-                    <span id='menu-h4'>Items In Cart</span>
+                    <span id='menu-h4'>Your Items</span>
                     <span id='total-price'>Total Price: ${this.props.user.total}</span>
+                </div>
+                <div class='back-to-menu-div'>
+                    <Link style={{"margin-left": "10px"}} to='/menu'>
+                    &#60; Back To Menu
+                    </Link>
                 </div>
                 <div className='flex-cont'>
                     {items}

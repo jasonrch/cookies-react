@@ -42,7 +42,7 @@ class Items extends Component {
                         <button className={this.state.quantity === 6 ? 'buttonClose' : 'buttonOpen'} onClick={() => this.setState({quantity: this.state.quantity - 1})}>-</button>
                         <span id='quantity'>{this.state.quantity}</span>
                         <button className={this.state.quantity === 36 ? 'buttonClose' : 'buttonOpen'} onClick={() => this.setState({quantity: this.state.quantity + 1})}>+</button>
-                        <br /> <button  className='btn btn-success  info-btn' onClick={() => this.addToCart('success')}>Add To Cart</button> <br />
+                        <br /> <button className='btn btn-success info-btn' onClick={() => this.addToCart('success')}>Add To Cart</button> <br />
                     </div>
                     <NotificationContainer/>
                 </div>

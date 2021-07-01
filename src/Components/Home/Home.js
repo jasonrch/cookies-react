@@ -111,7 +111,7 @@ class Home extends Component {
                         <p>Treat Yourself</p>
                     </div>
                     <div>
-                        <Link to='/menu'><button>Order Now</button></Link>
+                        <Link to='/menu'><button style={{"cursor":"pointer"}}>Order Now</button></Link>
                     </div>
                 </div>
                 <p>Cookies and baked goods that are a JOY to eat!</p>

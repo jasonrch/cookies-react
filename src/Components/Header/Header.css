@@ -5,7 +5,10 @@
     display: flex;
     justify-content: space-between;
 }
-
+.mobile-links:hover {
+    background-color: burlywood;
+    transition: all 0.5s;
+}
 .mobile-nav {
     display: flex;
     flex-direction: column;
@@ -56,11 +59,15 @@ padding:5px;
     0% {color:black}
     50% {color:orange}
     100% {color:black}
-  }
-  @keyframes mymoveoff {
+}
+/* @keyframes linkBG {
+    0% {background-color:rgb(185, 165, 165)}
+    100% {color:black}
+} */
+@keyframes mymoveoff {
     0% {color:black}
     100% {color:black}
-  }
+}
 @media (max-width: 500px){
     .desktop-nav {display: none;}
     .mobile-nav {

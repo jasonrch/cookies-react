@@ -4,6 +4,7 @@
     background-color: #fce4c4;
     padding:10px;
     margin:10px 0px;
+    border-radius: 10px;
 }
 .item-box:nth-child(1) {
     width:55%;
@@ -18,6 +19,9 @@
 .item-box p {
     text-decoration: underline;
     margin:5px 0px;
+}
+.item-box span {
+    font-weight: bold;
 }
 .buttonClose {
     display: none;

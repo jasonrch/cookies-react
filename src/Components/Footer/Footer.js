@@ -12,7 +12,7 @@ class Footer extends Component {
             <footer>
             <div>
                 <address>
-                    C.E.O.: <a href="mailto:webmaster@example.com">Ruth McCalleb</a>.<br /> 
+                    C.E.O.: <a href="mailto:johnwilliams@example.com">John Williams</a>.<br /> 
                     Box 564, New Orleans, LA<br />
                     USA
                 </address>

@@ -10,6 +10,15 @@
     font-size: 20px;
     text-decoration: underline;
 }
+.back-to-menu-div > a:hover {
+    background-color: burlywood;
+    transition: all 0.5s;
+}
+.back-to-menu-div {
+    display: flex;
+    /* background-color: #fce4c4; */
+    width: 80%;
+}
 @media (max-width:686px){
     #total-price {
         position: relative;

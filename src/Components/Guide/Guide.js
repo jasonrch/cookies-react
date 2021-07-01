@@ -17,15 +17,28 @@ class Guide extends Component {
                     </tr>
                     <tr>
                         <td>Chocolate Chip</td>
-                        <td>Chocolate, Flour, Oil, Butter, Pecans</td>
+                        <td>All-Purpose Flour, Baking Soda, Salt, Butter, Brown Suagr, White Sugar, Eggs, Vanilla Extract, 
+                            Chocolate Chips</td>
                     </tr>
                     <tr>
                         <td>Macadanium</td>
-                        <td>Nuts, Flour, Oats, Oil, Butter, Pecans</td>
+                        <td>Butter, Brown Suagr, White Sugar, Eggs, Vanilla Extract, Almond Extract, All-Purpose Flour
+                            Baking Soda, Salt, Macadamia Nuts, White Chocolate</td>
                     </tr>
                     <tr>
                         <td>Sugar Cookies</td>
-                        <td>Nuts, Sugar, Flour, Oats, Oil, Butter, Pecans</td>
+                        <td>Eggs, White Sugar, Vanilla Extract, All-Purpose Flour, Baking Soda, Butter, Cream of Tartar</td>
+                    </tr>
+                    <tr>
+                        <td>Peanut Butter</td>
+                        <td>Peanut Butter, Brown Sugar, Butter, Eggs, Vanilla Extract, All-Purpose Flour, Baking Soda, 
+                            Chocolate Chips, Peanuts, Shortening</td>
+                    </tr>
+                    <tr>
+                        <td>Oatmeal Cookies</td>
+                        <td>Raisins, Vanilla Extract, Brown Sugar, White Sugar, All-Purpose Flour, Baking Soda, Salt, Ground Cinnamon,
+                            Cooking Oats, Walnuts
+                        </td>
                     </tr>
                     </table>
             </div>
