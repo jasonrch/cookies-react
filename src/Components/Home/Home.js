@@ -5,6 +5,11 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import axios from 'axios';
 
+import svg from '../../Pictures/svg2.png';
+import cookie1 from '../../Pictures/chocolate-chip.jpg';
+import cookie2 from '../../Pictures/strawberry-cookie.jpg';
+import cookie3 from '../../Pictures/macadamian.jpg';
+
 
 class Home extends Component {
     constructor(props) {
@@ -103,7 +108,7 @@ class Home extends Component {
         inpMessage.value = '';
         NotificationManager.info("We'll be in touch", 'Message Sent!', 2000);
     }
-    render() { 
+    render() {
         return ( 
             <div className='main-cont'>
                 <div id='landing-div'>
@@ -114,7 +119,54 @@ class Home extends Component {
                         <Link to='/menu'><button style={{"cursor":"pointer"}}>Order Now</button></Link>
                     </div>
                 </div>
-                <p>Cookies and baked goods that are a JOY to eat!</p>
+
+                <div id='home-popular-cookies-cont'>
+                    <h1 style={{"marginBottom":"10px"}}>Popular Items</h1>
+                    <div id="home-popular-cookies-1">
+                        <div className="home-cookie-card">
+                            <div>
+                                <img className='popular-cookie-img' src={cookie1} />
+                            </div>
+                            <div>
+                                <h5>Chocolate Chip</h5>
+                                {/* <button>View Menu</button> */}
+                                <img className='svg-wave' src={svg} />
+                            </div>
+                        </div>
+                        <div className="home-cookie-card">
+                            <div>
+                                <img className='popular-cookie-img' src={cookie2} />
+                            </div>
+                            <div>
+                                <h5>Strawberry</h5>
+                                <img className='svg-wave' src={svg} />
+                            </div>
+                        </div>
+                        <div className="home-cookie-card">
+                            <div>
+                                <img className='popular-cookie-img' src={cookie3} />
+                            </div>
+                            <div>
+                                <h5>macadamian</h5>
+                                <img className='svg-wave' src={svg} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="home-aboutus-cont">
+                    <div className="home-aboutus-card">
+                        
+                    </div>
+                    <div className="home-aboutus-card">
+                        Hello
+                    </div>
+                </div>
+
+                <div className='home-tagline-cont'>
+                    <p>Cookies and baked goods that are a JOY to eat!</p>
+                </div>
+
                 <div id='landing-slideshow'> 
                     
                 </div>
@@ -133,6 +185,7 @@ class Home extends Component {
                     </address>
                 </div>
                 </div>
+
                 <div id='contact-form'>
                     <h4 style={{'marginBottom':"5px"}}>Contact Us</h4>
                     <p style={{'marginTop':"0"}}>What's on your mind?</p>
@@ -143,6 +196,7 @@ class Home extends Component {
                         <button className='btn btn-info info-btn' onClick={(event) => this.createNotification(event)}>Send Message</button>
                     </form>
                 </div>
+
                 <NotificationContainer/>
             </div>
          );
